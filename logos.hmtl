@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituciones colaboradoras</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #f7efe3;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .logos-section {
+      width: 100%;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .logos-title {
+      font-size: 24px;
+      color: #11153b;
+      margin-bottom: 35px;
+      font-weight: normal;
+    }
+
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 90px;
+      flex-wrap: wrap;
+    }
+
+    .logo-card {
+      text-decoration: none;
+      color: #5b4636;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .logo-card:hover {
+      transform: scale(1.04);
+      opacity: 0.85;
+    }
+
+    .logo-card img {
+      max-width: 360px;
+      max-height: 150px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .logo-label {
+      margin-top: 14px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .logos-container {
+        gap: 45px;
+      }
+
+      .logo-card img {
+        max-width: 260px;
+        max-height: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="logos-section">
+    <h2 class="logos-title">Instituciones colaboradoras</h2>
+
+    <div class="logos-container">
+
+      <a class="logo-card" href="https://kaabmap.github.io/pagina/" target="_blank" rel="noopener noreferrer">
+        <img src="img/logo-kaabmap.png" alt="Mexico Flying Labs / KaabMap">
+        <div class="logo-label">Mexico Flying Labs / KaabMap</div>
+      </a>
+
+      <a class="logo-card" href="https://www.inah.gob.mx/" target="_blank" rel="noopener noreferrer">
+        <img src="img/logo-inah.png" alt="Instituto Nacional de Antropología e Historia">
+        <div class="logo-label">Instituto Nacional de Antropología e Historia</div>
+      </a>
+
+    </div>
+  </section>
+</body>
+</html>
