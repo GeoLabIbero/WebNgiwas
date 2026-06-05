@@ -4,27 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instituciones colaboradoras</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background-color: #f7efe3;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: 'EB Garamond', Georgia, serif;
     }
 
     .logos-section {
       width: 100%;
       min-height: 300px;
-      padding: 40px 20px;
-      box-sizing: border-box;
+      padding: 56px 24px 64px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Textura de fondo muy sutil */
+    .logos-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(17, 21, 59, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(91, 70, 54, 0.03) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     .logos-title {
-      font-size: 26px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
       color: #11153b;
-      margin-bottom: 35px;
-      font-weight: normal;
+      margin: 0 0 12px;
+      letter-spacing: 0.03em;
+      animation: fadeSlideDown 0.7s ease both;
+    }
+
+    /* Línea ornamental bajo el título */
+    .title-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 44px;
+      animation: fadeSlideDown 0.7s 0.1s ease both;
+    }
+    .title-rule::before,
+    .title-rule::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #b0956e, transparent);
+    }
+    .title-rule span {
+      font-size: 14px;
+      color: #b0956e;
+      letter-spacing: 0.2em;
     }
 
     .logos-container {
@@ -38,12 +81,19 @@
     .logo-card {
       text-decoration: none;
       color: #5b4636;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeSlideUp 0.7s ease both;
     }
 
+    .logo-card:nth-child(1) { animation-delay: 0.2s; }
+    .logo-card:nth-child(2) { animation-delay: 0.35s; }
+
     .logo-card:hover {
-      transform: scale(1.04);
-      opacity: 0.85;
+      transform: translateY(-4px) scale(1.03);
+      opacity: 0.88;
     }
 
     .logo-card img {
@@ -52,18 +102,45 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
+      filter: drop-shadow(0 2px 8px rgba(17, 21, 59, 0.08));
+      transition: filter 0.25s ease;
+    }
+
+    .logo-card:hover img {
+      filter: drop-shadow(0 4px 16px rgba(17, 21, 59, 0.14));
     }
 
     .logo-label {
-      margin-top: 14px;
-      font-size: 16px;
+      margin-top: 16px;
+      font-size: 15px;
+      font-style: italic;
+      color: #7a6150;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    /* Animaciones */
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 700px) {
-      .logos-container {
-        gap: 45px;
+      .logos-section {
+        padding: 40px 20px 52px;
       }
-
+      .logos-title {
+        font-size: 22px;
+      }
+      .logos-container {
+        gap: 48px;
+      }
       .logo-card img {
         max-width: 260px;
         max-height: 120px;
@@ -71,23 +148,21 @@
     }
   </style>
 </head>
-
 <body>
   <section class="logos-section">
     <h2 class="logos-title">Instituciones colaboradoras</h2>
-
+    <div class="title-rule" aria-hidden="true">
+      <span>✦</span>
+    </div>
     <div class="logos-container">
-
       <a class="logo-card" href="https://kaabmap.github.io/pagina/" target="_blank" rel="noopener noreferrer">
         <img src="https://geolabibero.github.io/WebNgiwas/img/logo-kaabmap.png" alt="Mexico Flying Labs / KaabMap">
         <div class="logo-label">Mexico Flying Labs / KaabMap</div>
       </a>
-
       <a class="logo-card" href="https://www.inah.gob.mx/" target="_blank" rel="noopener noreferrer">
         <img src="https://geolabibero.github.io/WebNgiwas/img/logo-inah.png" alt="Instituto Nacional de Antropología e Historia">
         <div class="logo-label">Instituto Nacional de Antropología e Historia</div>
       </a>
-
     </div>
   </section>
 </body>
